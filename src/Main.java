@@ -13,6 +13,7 @@ public class Main {
         sc.nextLine();
 
         Stock stock = new Stock();
+        Sale sales = new Sale(stock);
 
         for(int i = 0; i < n ; i++) {
             System.out.println("Nome");
@@ -27,33 +28,23 @@ public class Main {
             System.out.println("ID");
             int id = sc.nextInt();
             sc.nextLine();
-            stock.addItem(new Item(name, purchsePrice, sellingPrice, quantity, id));
+            Item item = new Item(name, purchsePrice, sellingPrice, quantity, id);
+            stock.addItem(item);
         }
 
         stock.viewStock();
 
-        System.out.println("digite o Id de qual item vc quer atualizar:");
+
+        System.out.println("qual o id?");
         int id = sc.nextInt();
         sc.nextLine();
-
-        System.out.println("New name");
-        String name = sc.nextLine();
-        System.out.println("New purchase price");
-        double price = sc.nextDouble();
-        System.out.println("New selling price");
-        double pricesell = sc.nextDouble();
-        System.out.println("New quantity");
-        int quantity = sc.nextInt();
-        sc.nextLine();
-        System.out.println("New ID");
-        int newId = sc.nextInt();
+        System.out.println("quantos para remover?");
+        int quantos = sc.nextInt();
         sc.nextLine();
 
-        stock.updateItemById(id, name, price, pricesell, quantity, newId);
+        sales.purchase(id, quantos);
 
         stock.viewStock();
-
-
 
     }
 }

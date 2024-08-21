@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stock extends Item{
+public class Stock{
 
     private List<Item> itemList = new ArrayList<>();
 
@@ -17,9 +17,13 @@ public class Stock extends Item{
     }
 
     public void viewStock(){
-        for (Item item : itemList){
+        for (Item item : this.itemList){
             System.out.println(item);
         }
+    }
+
+    public List<Item> getItemList() {
+        return itemList;
     }
 
     public void removeItemById(int id){
